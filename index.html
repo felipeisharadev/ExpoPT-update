@@ -12,11 +12,17 @@
   <script src="scripts/script.js" defer></script>
 </head>
 <body>
-  <header class="cabecalho">
-    <div class="conteudo">
-      <h1>EXPO PT — Upload de Foto</h1>
-    </div>
-  </header>
+<header class="cabecalho">
+  <div class="conteudo">
+    <h1>EXPO PT — Upload de Foto</h1>
+
+    <nav class="menu">
+      <a href="index.html" class="item-menu ativo" aria-current="page">Enviar foto</a>
+      <a href="galeria.html" class="item-menu">Galeria</a>
+    </nav>
+  </div>
+</header>
+
 
   <main class="conteudo">
     <div class="cartao" role="region" aria-label="Formulário de envio de foto">
@@ -24,7 +30,7 @@
       <p class="texto-suave">As imagens vão para a <strong>fila de moderação</strong>. Depois de aprovadas, entram no site.</p>
 
       <!-- IMPORTANTE: action = sua URL /exec do Apps Script -->
-      <form id="formulario_envio" method="POST" action="https://script.google.com/macros/s/AKfycbx9wLmrRU0KRRKClc6NgwbX4f0_h0CxEp1S4t-xnQZA-YAe2kpGceA0rgB-_GHTaNSD1A/exec" target="janela_envio">
+      <form id="formulario_envio" method="POST" action="https://script.google.com/macros/s/AKfycbysRkp40wx41niVwxfK3AdgEx8hPb9AItbWGsWT_W3BAei-NRUt-Z7u__BHr59uizcTpQ/exec" target="janela_envio">
         <label for="arquivo">Selecione uma imagem (JPG, PNG, WEBP — até 10 MB)</label>
         <!-- NÃO coloque name no input de arquivo. O JS criará um hidden com a imagem em Base64. -->
         <input id="arquivo" type="file" accept="image/jpeg,image/png,image/webp" required />

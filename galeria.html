@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galeria — EXPO PT</title>
+
+  <!-- Estilos da galeria -->
+  <link rel="stylesheet" href="css/galeria.css">
+
+  <!-- Script que popula a grade (#grade_fotos) -->
+  <script src="scripts/galeria.js" defer></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="conteudo">
+      <div class="topo">
+        <h1 class="titulo">Galeria — EXPO PT</h1>
+        <nav class="menu" aria-label="Navegação principal">
+          <a href="index.html" class="item-menu">Enviar foto</a>
+          <a href="galeria.html" class="item-menu ativo" aria-current="page">Galeria</a>
+        </nav>
+      </div>
+      <p class="subtitulo">Fotos aprovadas pela moderação. Clique para ver detalhes do arquivo.</p>
+    </div>
+  </header>
+
+  <main class="conteudo">
+    <!-- status é preenchido pelo JS (ex.: “2 foto(s)”) -->
+    <div class="barra-status" role="status" aria-live="polite">
+      <span id="status" class="status">Carregando…</span>
+    </div>
+
+    <!-- a grade é preenchida pelo JS com .card contendo <img> e .meta -->
+    <section id="grade_fotos" class="grade" aria-label="Galeria de fotos"></section>
+
+    <footer class="rodape">
+      <a href="index.html" class="btn-voltar">← Voltar para enviar nova foto</a>
+    </footer>
+  </main>
+</body>
+</html>
