@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Galeria — EXPO PT</title>
 
-  <!-- Estilos da galeria -->
   <link rel="stylesheet" href="css/galeria.css">
-
-  <!-- Script que popula a grade (#grade_fotos) -->
+  <link rel="stylesheet" href="css/header.css">
   <script src="scripts/galeria.js" defer></script>
 </head>
 <body>
@@ -21,18 +19,21 @@
           <a href="galeria.html" class="item-menu ativo" aria-current="page">Galeria</a>
         </nav>
       </div>
-      <p class="subtitulo">Fotos aprovadas pela moderação. Clique para ver detalhes do arquivo.</p>
+      <p class="subtitulo">Fotos aprovadas pela moderação. Clique para ver detalhes.</p>
     </div>
   </header>
 
   <main class="conteudo">
-    <!-- status é preenchido pelo JS (ex.: “2 foto(s)”) -->
     <div class="barra-status" role="status" aria-live="polite">
       <span id="status" class="status">Carregando…</span>
     </div>
 
-    <!-- a grade é preenchida pelo JS com .card contendo <img> e .meta -->
     <section id="grade_fotos" class="grade" aria-label="Galeria de fotos"></section>
+
+    <div class="paginacao">
+      <button id="btn_carregar" class="btn-carregar" type="button">Carregar mais</button>
+      <span id="contador" class="contador"></span>
+    </div>
 
     <footer class="rodape">
       <a href="index.html" class="btn-voltar">← Voltar para enviar nova foto</a>

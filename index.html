@@ -7,21 +7,24 @@
 
   <!-- Estilos (pode simplificar ainda mais para o desafio) -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
 
   <!-- Seu JS. O defer garante que o DOM já exista quando o script rodar -->
   <script src="scripts/script.js" defer></script>
 </head>
 <body>
-<header class="cabecalho">
-  <div class="conteudo">
-    <h1>EXPO PT — Upload de Foto</h1>
-
-    <nav class="menu">
-      <a href="index.html" class="item-menu ativo" aria-current="page">Enviar foto</a>
-      <a href="galeria.html" class="item-menu">Galeria</a>
-    </nav>
-  </div>
-</header>
+  <header class="cabecalho">
+    <div class="conteudo">
+      <div class="topo">
+        <h1 class="titulo">Galeria — EXPO PT</h1>
+        <nav class="menu" aria-label="Navegação principal">
+          <a href="index.html" class="item-menu">Enviar foto</a>
+          <a href="galeria.html" class="item-menu" aria-current="page">Galeria</a>
+        </nav>
+      </div>
+      <p class="subtitulo">Fotos aprovadas pela moderação. Clique para ver detalhes do arquivo.</p>
+    </div>
+  </header>
 
 
   <main class="conteudo">
@@ -30,7 +33,7 @@
       <p class="texto-suave">As imagens vão para a <strong>fila de moderação</strong>. Depois de aprovadas, entram no site.</p>
 
       <!-- IMPORTANTE: action = sua URL /exec do Apps Script -->
-      <form id="formulario_envio" method="POST" action="https://script.google.com/macros/s/AKfycbysRkp40wx41niVwxfK3AdgEx8hPb9AItbWGsWT_W3BAei-NRUt-Z7u__BHr59uizcTpQ/exec" target="janela_envio">
+      <form id="formulario_envio" method="POST" action="https://script.google.com/macros/s/AKfycbzwDrNjnVw66XLvFgu2hsTZYzRllgq5WB7vITfLHELzrfTqSUGjJuTAjXkcwJfEcsYeVA/exec" target="janela_envio">
         <label for="arquivo">Selecione uma imagem (JPG, PNG, WEBP — até 10 MB)</label>
         <!-- NÃO coloque name no input de arquivo. O JS criará um hidden com a imagem em Base64. -->
         <input id="arquivo" type="file" accept="image/jpeg,image/png,image/webp" required />

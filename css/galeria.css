@@ -1,31 +1,4 @@
-/* ========= Tema / Variáveis ========= */
-:root {
-  --brand: #0b3b5a;
-  --brand-2: #1d6fa5;
-  --bg: #f6f8fb;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --border: #e5e7eb;
-  --ok: #0a7b43;
-  --err: #b00020;
-  --shadow: 0 6px 24px rgba(2, 6, 23, .08);
-  --shadow-soft: 0 2px 8px rgba(2, 6, 23, .06);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b1220;
-    --card: #0f172a;
-    --text: #e5e7eb;
-    --muted: #94a3b8;
-    --border: #1f2a44;
-    --shadow: 0 6px 24px rgba(0, 0, 0, .35);
-    --shadow-soft: 0 2px 8px rgba(0, 0, 0, .3);
-  }
-}
-
-/* ========= Reset básico ========= */
+/* ========= Reset básico / corpo ========= */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
@@ -35,53 +8,6 @@ body {
   background: var(--bg);
 }
 
-/* ========= Cabeçalho / Menu ========= */
-.cabecalho {
-  background: linear-gradient(140deg, var(--brand), var(--brand-2));
-  color: #fff;
-  padding: 20px 0 16px;
-  box-shadow: var(--shadow-soft);
-}
-.conteudo {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-.topo {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  justify-content: space-between;
-}
-.titulo { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: .3px; }
-.subtitulo { margin: 6px 0 0; color: #e8eef6; font-size: 14px; }
-
-.menu {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.item-menu {
-  display: inline-block;
-  padding: 8px 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,.35);
-  color: #fff;
-  background: rgba(255,255,255,.06);
-  backdrop-filter: blur(4px);
-  transition: transform .15s ease, background .2s ease, border-color .2s ease;
-}
-.item-menu:hover { background: rgba(255,255,255,.14); transform: translateY(-1px); }
-.item-menu.ativo,
-.item-menu[aria-current="page"] {
-  background: #fff;
-  color: var(--brand);
-  border-color: #fff;
-}
-
 /* ========= Barra de status ========= */
 .barra-status {
   display: flex;
@@ -89,20 +15,16 @@ body {
   justify-content: space-between;
   margin: 18px 0 8px;
 }
-.status {
-  color: var(--muted);
-  font-size: 14px;
-}
+.status { color: var(--muted); font-size: 14px; }
 
 /* ========= Grade de cartões ========= */
 .grade {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
-/* Cada card contem a foto e uma barrinha de metadados */
 .card {
   position: relative;
   background: var(--card);
@@ -110,42 +32,32 @@ body {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
-  transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+  transition: transform .18s, box-shadow .2s, border-color .2s;
 }
-
 .card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
-  border-color: rgba(99, 102, 241, .25);
+  border-color: rgba(99,102,241,.25);
 }
 
-/* Imagem — quadrado responsivo, recortando inteligentemente */
 .card img {
   width: 100%;
   display: block;
-  aspect-ratio: 1 / 1;        /* mantém grade coesa */
-  object-fit: cover;          /* centraliza e recorta sem distorcer */
-  background:
-    linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 37%, #e2e8f0 63%) no-repeat;
-  background-size: 400% 100%; /* shimmer de "carregando" */
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  background: linear-gradient(90deg,#e2e8f0 25%,#f1f5f9 37%,#e2e8f0 63%) no-repeat;
+  background-size: 400% 100%;
   animation: brilho 1.4s linear infinite;
   filter: saturate(1.02);
 }
-
 @media (prefers-color-scheme: dark) {
   .card img {
-    background:
-      linear-gradient(90deg, #1e293b 25%, #0f172a 37%, #1e293b 63%) no-repeat;
+    background: linear-gradient(90deg,#1e293b 25%,#0f172a 37%,#1e293b 63%) no-repeat;
   }
 }
-
-/* Quando a imagem terminar de carregar, removemos o shimmer (o browser substitui o fundo) */
 .card img[src^="data:"],
-.card img[src^="http"] {
-  animation: none;
-}
+.card img[src^="http"] { animation: none; }
 
-/* Meta com nome do arquivo */
 .meta {
   display: flex;
   align-items: center;
@@ -155,9 +67,8 @@ body {
   font-size: 12px;
   color: var(--muted);
   border-top: 1px solid var(--border);
-  background: linear-gradient(0deg, rgba(0,0,0,0.02), rgba(0,0,0,0));
+  background: linear-gradient(0deg, rgba(0,0,0,.02), rgba(0,0,0,0));
 }
-
 .meta .nome {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -165,11 +76,32 @@ body {
   max-width: 100%;
 }
 
-/* Botão voltar */
-.rodape {
+/* ========= Paginação / Ações ========= */
+.paginacao {
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 12px;
+  margin: 8px 0 28px;
 }
+.btn-carregar {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform .15s, box-shadow .2s, opacity .2s;
+}
+.btn-carregar:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-carregar:disabled { opacity: .6; cursor: not-allowed; }
+.contador { color: var(--muted); font-size: 13px; }
+
+/* ========= Rodapé ========= */
+.rodape { display: flex; justify-content: center; }
 .btn-voltar {
   display: inline-block;
   padding: 10px 14px;
@@ -179,13 +111,10 @@ body {
   color: #fff;
   font-weight: 600;
   box-shadow: var(--shadow-soft);
-  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+  transition: transform .15s, box-shadow .2s, opacity .2s;
 }
 .btn-voltar:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
 .btn-voltar:active { transform: translateY(0); opacity: .9; }
 
 /* ========= Animações ========= */
-@keyframes brilho {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+@keyframes brilho { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
